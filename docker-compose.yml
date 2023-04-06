@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  mariadb:
+    image: mariadb:10.8
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: 'test'
+      MYSQL_USER: 'test'
+      MYSQL_PASSWORD: 'test'
+      MARIADB_ROOT_PASSWORD: 'test'
+    ports:
+      - '3306:3306'
+  rabbitmq:
+    image: rabbitmq:3.10.7-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - "5672:5672"
+      - "15672:15672"
